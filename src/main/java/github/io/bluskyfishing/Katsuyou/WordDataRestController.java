@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class WordDataRestController {
     @CrossOrigin(origins = "http://127.0.0.1:5173")
-    @GetMapping("/")
+    @GetMapping("/random")
     public ResponseEntity<Word> getWordData(){
         return ResponseEntity.status(HttpStatus.OK).body(new WordDataService().word());
 
