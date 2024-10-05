@@ -12,8 +12,6 @@ public class WordDataRestController {
     @GetMapping("/random")
     public ResponseEntity<Word> getWordData(){
         return ResponseEntity.status(HttpStatus.OK).body(new WordDataService().word());
-
-
     }
 
 }
