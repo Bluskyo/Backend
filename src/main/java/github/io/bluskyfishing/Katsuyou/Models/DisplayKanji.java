@@ -1,14 +1,12 @@
-package github.io.bluskyfishing.Katsuyou;
+package github.io.bluskyfishing.Katsuyou.Models;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-public class Word {
+public class DisplayKanji {
     public String kanji;
     public String hiragana;
     public String tag;
     public String meaning;
 
-    public Word(String kanji, String hiragana, String tag, String meaning) {
+    public DisplayKanji(String kanji, String hiragana, String tag, String meaning) {
         this.kanji = kanji;
         this.hiragana = hiragana;
         this.tag = tag;

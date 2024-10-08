@@ -1,7 +1,8 @@
-package github.io.bluskyfishing.Katsuyou;
+package github.io.bluskyfishing.Katsuyou.Services;
 
+import github.io.bluskyfishing.Katsuyou.Data.N5verbs;
+import github.io.bluskyfishing.Katsuyou.Models.DisplayKanji;
 import org.springframework.stereotype.Service;
-
 
 @Service
 public class WordDataService {
@@ -10,17 +11,16 @@ public class WordDataService {
         return (int) ((Math.random() * (max - min)) + min);
     }
 
-    public Word word(){
+    public DisplayKanji word(){
         String[][] verbs = N5verbs.n5List();
         int x = verbs.length;
         int random = getRandomNumber(0, x);
-        Word word = new Word(
+
+        return new DisplayKanji(
                 verbs[random][0],
                 verbs[random][1],
                 verbs[random][2],
                 verbs[random][3]
         );
-
-        return word;
     }
 }

@@ -1,4 +1,4 @@
-package github.io.bluskyfishing.Katsuyou;
+package github.io.bluskyfishing.Katsuyou.Data;
 
 public class N5verbs {
     public static String[][] n5List(){
@@ -25,8 +25,8 @@ public class N5verbs {
                 {"張る","はる","Godan verb","to stick,to paste,to affixto stretch"},
                 {"走る","はしる","Godan verb","to run,to run (of a vehicle),to driveto travel"},
                 {"働く","はたらく","Godan verb","to work,to labor,to labourto function"},
-                {"弾く","はじく","Godan verb","to flip,to snap,to flickto repel"},
-                {"行く","いく, ゆく, イク","Godan verb","to go,to move (towards),to head (towards)to leave (for)"},
+                {"弾く","はじく","Godan verb","to flip,to snap,to flick,to repel"},
+                {"行く","いく","Godan verb","to go,to move (towards),to head (towards)to leave (for)"},
                 {"入れる","いれる","Ichidan verb","to put in,to let in,to take into bring in"},
                 {"要る","いる","Godan verb","to be needed,to be necessary,to be requiredto be wanted"},
                 {"居る","いる","Ichidan verb","to be (of animate objects),to exist,to stayto be ...-ing"},
@@ -86,27 +86,27 @@ public class N5verbs {
                 {"頼む","たのむ","Godan verb","to request,to beg,to askto call"},
                 {"立つ","たつ","Godan verb","to stand (up),to rise,to get to one's feetto stand on end (e.g. of hairs)"},
                 {"飛ぶ","とぶ","Godan verb","to fly,to soar,to jumpto leap"},
-                {"止まる","とまる","Godan verb","to stop (moving),to come to a stop,to stop (doingworking"},
-                {"取る","とる","Godan verb","to take,to pick up,to grabto catch"},
-                {"撮る","とる","Godan verb","to take (a photograph),to record (audio or video),to filmto shoot"},
-                {"疲れる","つかれる","Ichidan verb","to get tired,to tire,to get fatiguedto become exhausted"},
+                {"止まる","とまる","Godan verb","to stop (moving),to come to a stop,to stop (doing working"},
+                {"取る","とる","Godan verb","to take,to pick up,to grab,to catch"},
+                {"撮る","とる","Godan verb","to take (a photograph),to record (audio or video),to film,to shoot"},
+                {"疲れる","つかれる","Ichidan verb","to get tired,to tire,to get fatigued,to become exhausted"},
                 {"使う","つかう","Godan verb","to use (a tool,method,etc.)to make use of"},
-                {"付ける","つける","Ichidan verb","to attach,to join,to connectto add"},
+                {"付ける","つける","Ichidan verb","to attach,to join,to connect,to add"},
                 {"着く","つく","Godan verb","to arrive at,to reach,to sit onto sit at (e.g. the table)"},
-                {"作る","つくる","Godan verb","to make,to produce,to manufactureto build"},
+                {"作る","つくる","Godan verb","to make,to produce,to manufacture,to build"},
                 {"勤める","つとめる","Ichidan verb","to work (for),to be employed (at),to serve (in)to serve (as)"},
                 {"生まれる","うまれる","Ichidan verb","to be born"},
                 {"売る","うる","Godan verb","to sell,to betray,to sell out (one's friendcountry"},
-                {"歌う","うたう","Godan verb","to sing,to sing of (love,beautyetc.) in a poem"},
-                {"分かる","わかる","Godan verb","to understand,to comprehend,to graspto see"},
+                {"歌う","うたう","Godan verb","to sing,to sing of (love,beauty etc.) in a poem"},
+                {"分かる","わかる","Godan verb","to understand,to comprehend,to grasp,to see"},
                 {"忘れる","わすれる","Ichidan verb","to forget,to leave carelessly,to be forgetful ofto forget about"},
-                {"渡る","わたる","Godan verb","to cross over,to go across,to extendto cover"},
+                {"渡る","わたる","Godan verb","to cross over,to go across,to extend,to cover"},
                 {"渡す","わたす","Godan verb","to ferry across (e.g. a river),to carry across,to traverseto lay across"},
-                {"遣る","やる","Godan verb","to do,to undertake,to performto play (a game)"},
-                {"休む","やすむ","Godan verb","to be absent,to take a day off,to restto have a break"},
-                {"呼ぶ","よぶ","Godan verb","to call out (to),to call,to invoketo summon (a doctor"},
-                {"読む","よむ","Godan verb","to read,to recite (e.g. a sutra),to chantto predict"},
-                {"有る","ある","Godan verb","to be,to exist,to liveto have"},
+                {"遣る","やる","Godan verb","to do,to undertake,to perform to play (a game)"},
+                {"休む","やすむ","Godan verb","to be absent,to take a day off,to rest,to have a break"},
+                {"呼ぶ","よぶ","Godan verb","to call out (to),to call,to invoke,to summon (a doctor"},
+                {"読む","よむ","Godan verb","to read,to recite (e.g. a sutra),to chant,to predict"},
+                {"有る","ある","Godan verb","to be,to exist,to live,to have"},
                 {"為る","する","auxiliary verb, intransitive verb, suru verb - included, transitive verb, suffix","to do,to carry out,to performto cause to become"}
         };
 
