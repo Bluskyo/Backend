@@ -19,4 +19,16 @@ public class Settings {
         this.present = present;
         this.past = past;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"affirmative\":" + affirmative +
+                ", \"negative\":" + negative +
+                ", \"formal\":" + formal +
+                ", \"informal\":" + informal +
+                ", \"present\":" + present +
+                ", \"past\":" + past +
+                '}';
+    }
 }
