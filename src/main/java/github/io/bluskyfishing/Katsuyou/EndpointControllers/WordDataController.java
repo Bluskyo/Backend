@@ -1,4 +1,4 @@
-package github.io.bluskyfishing.Katsuyou.Controllers;
+package github.io.bluskyfishing.Katsuyou.EndpointControllers;
 
 import github.io.bluskyfishing.Katsuyou.Models.DisplayKanji;
 import github.io.bluskyfishing.Katsuyou.Services.WordDataService;

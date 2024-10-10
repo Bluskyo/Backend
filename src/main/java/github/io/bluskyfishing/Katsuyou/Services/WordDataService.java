@@ -17,10 +17,10 @@ public class WordDataService {
         int random = getRandomNumber(0, x);
 
         return new DisplayKanji(
-                verbs[random][0],
-                verbs[random][1],
-                verbs[random][2],
-                verbs[random][3]
+                verbs[random][0], // kanji
+                verbs[random][1], // hiragana
+                verbs[random][2], // tag
+                verbs[random][3] // meaning
         );
     }
 }
