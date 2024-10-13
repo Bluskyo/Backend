@@ -18,8 +18,8 @@ public class Conjugations {
 
             conjugations.put("affirmative", plainForm);
             conjugations.put("negative", negative);
-            conjugations.put("formalAffirmative", formalAffirmative);
-            conjugations.put("formalNegative", formalNegative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }

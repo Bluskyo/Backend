@@ -62,7 +62,7 @@ public class N5verbs {
                 {"寝る","ねる","Ichidan verb","to sleep (lying down),to go to bed,to lie in bedto lie down"},
                 {"上る","のぼる","Godan verb","to ascend,to go up,to climbto ascend (as a natural process"},
                 {"飲む","のむ","Godan verb","to drink,to gulp,to swallowto take (medicine)"},
-                {"乗る","のる, ノる","Godan verb","to get on (train,plane,busship"},
+                {"乗る","のる","Godan verb","to get on (train,plane,busship"},
                 {"脱ぐ","ぬぐ","Godan verb","to take off (clothes,shoes,etc.)to undress"},
                 {"覚える","おぼえる","Ichidan verb","to memorize,to memorise,to commit to memoryto learn by heart"},
                 {"起きる","おきる","Ichidan verb","to get up,to rise,to blaze up (fire)to wake up"},

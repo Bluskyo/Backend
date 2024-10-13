@@ -25,10 +25,10 @@ public class SettingsController {
         String kanji = URLDecoder.decode(encodedKanji, StandardCharsets.UTF_8);
         String tag = URLDecoder.decode(encodedTag, StandardCharsets.UTF_8);
 
-        System.out.println(encodedKanji);
-        System.out.println("Received kanji: " + kanji);
-        System.out.println("Received tag: " + tag);
-        System.out.println("Received settings" + settings);
+        // System.out.println(encodedKanji);
+        // System.out.println("Received kanji: " + kanji);
+        // System.out.println("Received tag: " + tag);
+        // System.out.println("Received settings" + settings);
 
         return ResponseEntity.status(HttpStatus.OK).body(new SettingsService().ConjugationBasedOnSettings(kanji, tag, settings));
     }

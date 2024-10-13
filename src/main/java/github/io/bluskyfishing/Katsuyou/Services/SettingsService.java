@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+
+import static java.lang.Math.random;
 
 @Service
 public class SettingsService {
@@ -29,11 +32,8 @@ public class SettingsService {
             Map<String, String> presentConjugations = Conjugations.present(kanji, tag);
              String conjugation = "";
 
-            if (formality.equals("informal")) {
-                conjugation = presentConjugations.get(assertion);
-            } else {
-                conjugation = presentConjugations.get("formal"+ "_" + assertion); // look at this later. "_"
-            }
+            if (formality.equals("informal"))  conjugation = presentConjugations.get(assertion);
+            else conjugation = presentConjugations.get("formal"+ "_" + assertion); // look at this later. "_"
 
             conjugationInfo.put("conjugation", conjugation);
         }
@@ -41,44 +41,30 @@ public class SettingsService {
         return conjugationInfo;
     }
 
-    private int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
-    }
-
     private String getAssertion(Settings settings) {
         if (settings.affirmative && settings.negative){
-            int decide = getRandomNumber(0,1);
+            boolean assertion = new Random().nextBoolean();
 
-            if (decide == 0){
-                return "affirmative";
-            }
-            else {
-                return "negative";
-            }
-        } else if (settings.affirmative) {
-            return "affirmative";
-        } else if (settings.negative) {
-            return  "negative";
-        }
+            if (assertion)  return "affirmative";
+            else return "negative";
+
+        } else if (settings.affirmative) return "affirmative";
+        else if (settings.negative)  return  "negative";
+
         return "";
     }
 
     private String getFormality(Settings settings) {
 
         if (settings.formal && settings.informal){
-            int decide = getRandomNumber(0,1);
+            boolean formal = new Random().nextBoolean();
 
-            if (decide == 0){
-                return  "formal";
-            }
-            else {
-                return "informal";
-            }
-        } else if (settings.formal) {
-            return "formal";
-        } else if (settings.informal) {
-            return "informal";
-        }
+            if (formal)  return  "formal";
+            else  return "informal";
+
+        } else if (settings.formal)  return "formal";
+        else if (settings.informal)  return "informal";
+
         return "";
     }
 
@@ -90,7 +76,7 @@ public class SettingsService {
 
         if (!possibleTenses.isEmpty())
         {
-            int decide = getRandomNumber(0, possibleTenses.size() - 1);
+            int decide = new Random().nextInt(possibleTenses.size());
             return possibleTenses.get(decide);
         }
         return "";
