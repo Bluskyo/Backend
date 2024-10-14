@@ -7,14 +7,13 @@ public class Conjugations {
 
     public static Map<String, String> present(String plainForm, String tag){
 
+        Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
 
         if ("Ichidan verb".equals(tag) || ("Suru verb".equals(tag) || "Kuru verb".equals(tag))){ // Ru-Verbs
             String negative = wordStem + "ない";
             String formalAffirmative = wordStem + "ます";
             String formalNegative = wordStem + "ません";
-
-            Map<String, String> conjugations = new HashMap<>();
 
             conjugations.put("affirmative", plainForm);
             conjugations.put("negative", negative);
@@ -56,8 +55,6 @@ public class Conjugations {
             String formalAffirmative = wordStem + formalStem + "ます";
             String formalNegative = wordStem + formalStem + "ません";
 
-            Map<String, String> conjugations = new HashMap<>();
-
             conjugations.put("affirmative", plainForm);
             conjugations.put("negative", negative);
             conjugations.put("formal_affirmative", formalAffirmative);
@@ -69,8 +66,9 @@ public class Conjugations {
         return null;
     }
 
-    public static String[] past(String plainForm, String tag){
+    public static Map<String, String> past(String plainForm, String tag){
 
+        Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
 
         if ("Ichidan verb".equals(tag) || ("Suru verb".equals(tag) || "Kuru verb".equals(tag))){
@@ -79,7 +77,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + "ました";
             String formalNegative = wordStem + "ませんでした";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -108,12 +109,8 @@ public class Conjugations {
                         ending = "いて";
                     }
                 }
-                case 'ぐ' -> {
-                    ending = "いだ";
-                }
-                case 'す' -> {
-                    ending = "した";
-                }
+                case 'ぐ' -> ending = "いだ";
+                case 'す' -> ending = "した";
                 case 'つ' -> {
                     ending = "った";
                     stem = 'た';
@@ -144,7 +141,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + formalStem +"ました";
             String formalNegative = wordStem + formalStem +"ませんでした";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -152,18 +152,21 @@ public class Conjugations {
         return null;
     }
 
-    public static String[] teForm(String plainForm, String tag){
+    // Returns only 2 conjugations.
+    public static Map<String, String> teForm(String plainForm, String tag){
 
+        Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
 
         if ("Ichidan verb".equals(tag) || "Suru verb".equals(tag) || "Kuru verb".equals(tag) ){
 
             String affirmative = wordStem + "て";
             String negative = wordStem + "なくて";
-            String[] conjugations = {affirmative, negative};
+
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
-
         }
         else if ("Godan verb".equals(tag)){
 
@@ -171,9 +174,7 @@ public class Conjugations {
             String ending = "";
 
             switch (hiragana) {
-                case 'す'->{
-                    ending = "して";
-                }
+                case 'す'-> ending = "して";
                 case 'く'->{
                     if ("行".equals(wordStem)){ // 行って is an exception in this conjugation.
                         ending = "って";
@@ -181,21 +182,16 @@ public class Conjugations {
                         ending = "いて";
                     }
                 }
-                case 'ぐ'->{
-                    ending = "いで";
-                }
-                case 'ぬ', 'ぶ', 'む'->{
-                    ending = "んで";
-                }
-                case 'う', 'つ', 'る' ->{
-                    ending = "って";
-                }
+                case 'ぐ'-> ending = "いで";
+                case 'ぬ', 'ぶ', 'む'-> ending = "んで";
+                case 'う', 'つ', 'る' -> ending = "って";
             }
 
             String affirmative = wordStem + ending;
             String negative = wordStem + "なくて";
 
-            String[] conjugations = {affirmative, negative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
@@ -203,8 +199,9 @@ public class Conjugations {
         return null;
     }
 
-    public static String[] potential(String plainForm, String tag){
+    public static Map<String, String> potential(String plainForm, String tag){
 
+        Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
 
         if ("Ichidan verb".equals(tag) || "Kuru verb".equals(tag)){
@@ -213,7 +210,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + "られます";
             String formalNegative = wordStem + "られません";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -224,12 +224,8 @@ public class Conjugations {
             char hiragana = plainForm.charAt(plainForm.length() - 1);
 
             switch (hiragana) { // finds e equivalent hiragana.
-                case 'ぬ','む', 'る' -> {
-                    stem -= 1;
-                }
-                case 'ぶ' -> {
-                    stem = 'べ';
-                }
+                case 'ぬ','む', 'る' -> stem -= 1;
+                case 'ぶ' -> stem = 'べ';
             }
 
             String affirmative = wordStem + stem + "る";
@@ -237,7 +233,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + stem + "ます";
             String formalNegative = wordStem + stem + "ません";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -247,7 +246,10 @@ public class Conjugations {
             String formalAffirmative = "できます";
             String formalNegative = "できません";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -255,14 +257,18 @@ public class Conjugations {
         return null;
     }
 
-    public static String[] volitional(String plainForm, String tag){
+    // returns only 2 conjugations.
+    public static Map<String, String> volitional(String plainForm, String tag){
+
+        Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
 
         if ("Ichidan verb".equals(tag) || "Suru verb".equals(tag) || "Kuru verb".equals(tag)){
             String affirmative = wordStem + "よう";
             String negative = wordStem + "ましょう";
 
-            String[] conjugations = {affirmative, negative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
@@ -280,9 +286,7 @@ public class Conjugations {
                     stem -= 2;
                     formalStem += 1;
                 }
-                case 'つ' -> {
-                    formalStem  = 'ち';
-                }
+                case 'つ' -> formalStem  = 'ち';
                 case 'ぶ' -> {
                     stem = 'ぼ';
                     formalStem = 'び';
@@ -292,7 +296,8 @@ public class Conjugations {
             String affirmative = wordStem + stem + "う";
             String negative = wordStem + formalStem + "ましょう";
 
-            String[] conjugations = {affirmative, negative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
@@ -300,7 +305,9 @@ public class Conjugations {
         return null;
     }
 
-    public static String[] passive(String plainForm, String tag){
+    public static Map<String, String> passive(String plainForm, String tag){
+
+        Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
 
         if ("Ichidan verb".equals(tag) || "Kuru verb".equals(tag)){
@@ -309,7 +316,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + "られます";
             String formalNegative = wordStem + "られません";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -320,18 +330,10 @@ public class Conjugations {
             char hiragana = plainForm.charAt(plainForm.length() - 1);
 
             switch (hiragana) {
-                case 'ぬ','む', 'る' -> {
-                    stem += 2;
-                }
-                case 'ぶ' -> {
-                    stem = 'ば';
-                }
-                case 'う' -> {
-                    stem = 'わ';
-                }
-                case 'つ' -> {
-                    stem = 'た';
-                }
+                case 'ぬ','む', 'る' -> stem += 2;
+                case 'ぶ' -> stem = 'ば';
+                case 'う' -> stem = 'わ';
+                case 'つ' -> stem = 'た';
             }
 
             String affirmative = wordStem + stem + "れる";
@@ -339,7 +341,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + stem + "れます";
             String formalNegative = wordStem + stem + "れません";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -349,7 +354,10 @@ public class Conjugations {
             String formalAffirmative = "されます";
             String formalNegative = "されません";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -357,7 +365,9 @@ public class Conjugations {
         return null;
     }
 
-    public static String[] causative(String plainForm, String tag){
+    public static Map<String, String> causative(String plainForm, String tag){
+
+        Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1);
 
         if ("Ichidan verb".equals(tag) || "Kuru verb".equals(tag)){
@@ -366,7 +376,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + "させます";
             String formalNegative = wordStem + "させません";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -377,18 +390,10 @@ public class Conjugations {
             char hiragana = plainForm.charAt(plainForm.length() - 1);
 
             switch (hiragana) {
-                case 'ぬ','む', 'る' -> {
-                    stem += 2;
-                }
-                case 'ぶ' -> {
-                    stem = 'ば';
-                }
-                case 'う' -> {
-                    stem = 'わ';
-                }
-                case 'つ' -> {
-                    stem = 'た';
-                }
+                case 'ぬ','む', 'る' -> stem += 2;
+                case 'ぶ' -> stem = 'ば';
+                case 'う' -> stem = 'わ';
+                case 'つ' -> stem = 'た';
             }
 
             String affirmative = wordStem + stem + "せる";
@@ -396,7 +401,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + stem + "せます";
             String formalNegative = wordStem + stem + "せません";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -406,7 +414,10 @@ public class Conjugations {
             String formalAffirmative = "させます";
             String formalNegative = "させません";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
+            conjugations.put("formal_affirmative", formalAffirmative);
+            conjugations.put("formal_negative", formalNegative);
 
             return conjugations;
         }
@@ -414,14 +425,17 @@ public class Conjugations {
         return null;
     }
 
-    public static String[] causativePassive(String plainForm, String tag){
+    // returns 2 conjugations.
+    public static Map<String, String> causativePassive(String plainForm, String tag){
+        Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1);
 
         if ("Ichidan verb".equals(tag) || "Kuru verb".equals(tag)){
             String affirmative = wordStem + "せられる";
             String negative = wordStem + "せられない";
 
-            String[] conjugations = {affirmative, negative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
@@ -432,25 +446,17 @@ public class Conjugations {
             char hiragana = plainForm.charAt(plainForm.length() - 1);
 
             switch (hiragana) {
-                case 'ぬ','む', 'る' -> {
-                    stem += 2;
-                }
-                case 'ぶ' -> {
-                    stem = 'ば';
-                }
-                case 'う' -> {
-                    stem = 'わ';
-                }
-                case 'つ' -> {
-                    stem = 'た';
-                }
+                case 'ぬ','む', 'る' -> stem += 2;
+                case 'ぶ' -> stem = 'ば';
+                case 'う' -> stem = 'わ';
+                case 'つ' -> stem = 'た';
             }
 
             String affirmative = wordStem + stem + "せられる";
             String negative = wordStem + stem + "せられない";
 
-
-            String[] conjugations = {affirmative, negative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
@@ -458,7 +464,8 @@ public class Conjugations {
             String affirmative = "させられる";
             String negative = "させられない";
 
-            String[] conjugations = {affirmative, negative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
@@ -466,94 +473,43 @@ public class Conjugations {
         return null;
     }
 
-    public static String[] imperative(String plainForm, String tag){
+    public static Map<String, String> imperative(String plainForm, String tag){
+        Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
 
         if ("Ichidan verb".equals(tag) || "Suru verb".equals(tag)){
             String affirmative = wordStem + "ろ";
             String negative = wordStem + "な";
-            String formalAffirmative = wordStem + "てください"; // te form
-            String formalNegative = wordStem + "ないでください";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
         else if ("Godan verb".equals(tag)){
             int nextHiragana = plainForm.charAt(plainForm.length() - 1 ) + 2; // finds next hiragana of conjugation.
             char ending = (char)nextHiragana;
-
-            int formalNextHiragana = plainForm.charAt(plainForm.length() - 1 ) - 4; // finds next hiragana of conjugation.
-            char formalStem = (char)formalNextHiragana;
-
             char hiragana = plainForm.charAt(plainForm.length() - 1);
 
             switch (hiragana) { // finds e equivalent hiragana.
-                case 'ぬ','む', 'る' -> {
-                    ending -= 1;
-                }
-                case 'ぶ' -> {
-                    ending = 'べ';
-                }
-            }
-
-            // te form for affirmative formal.
-            String teFrom = "";
-
-            switch (hiragana) {
-                case 'す'->{
-                    teFrom = "して";
-                }
-                case 'く'->{
-                    if ("行".equals(wordStem)){ // 行って is an exception in this conjugation.
-                        teFrom = "って";
-                    }else{
-                        teFrom = "いて";
-                    }
-                }
-                case 'ぐ'->{
-                    teFrom = "いで";
-                }
-                case 'ぬ', 'ぶ', 'む'->{
-                    teFrom = "んで";
-                }
-                case 'う', 'つ', 'る' ->{
-                    teFrom = "って";
-                }
-            }
-
-            // te form for negative
-            switch (hiragana) {
-                case 'ぬ','む', 'る' -> {
-                    formalStem += 2;
-                }
-                case 'ぶ' -> {
-                    formalStem = 'ば';
-                }
-                case 'う' -> {
-                    formalStem = 'わ';
-                }
-                case 'つ' -> {
-                    formalStem = 'た';
-                }
+                case 'ぬ','む', 'る' -> ending -= 1;
+                case 'ぶ' -> ending = 'べ';
             }
 
             String affirmative = wordStem + ending;
             String negative = wordStem + ending + "な";
-            String formalAffirmative = wordStem + teFrom + "ください";
-            String formalNegative = wordStem + formalStem + "ないください";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
         else if ("Kuru verb".equals(tag)){
             String affirmative = "来い";
             String negative = "来るな";
-            String formalAffirmative = "来てください";
-            String formalNegative = "来ないでください";
 
-            String[] conjugations = {affirmative, negative, formalAffirmative, formalNegative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
@@ -561,14 +517,17 @@ public class Conjugations {
         return null;
     }
 
-    public static String[] conditional(String plainForm, String tag){
+    // returns 2 conjugations.
+    public static Map<String, String> conditional(String plainForm, String tag){
+        Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
 
         if ("Ichidan verb".equals(tag) || "Suru verb".equals(tag) || "Kuru verb".equals(tag)){
             String affirmative = wordStem + "れば";
             String negative = wordStem + "なければ";
 
-            String[] conjugations = {affirmative, negative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
@@ -579,18 +538,15 @@ public class Conjugations {
             char hiragana = plainForm.charAt(plainForm.length() - 1);
 
             switch (hiragana) { // finds e equivalent hiragana.
-                case 'ぬ','む', 'る' -> {
-                    nextStem -= 1;
-                }
-                case 'ぶ' -> {
-                    nextStem = 'べ';
-                }
+                case 'ぬ','む', 'る' -> nextStem -= 1;
+                case 'ぶ' -> nextStem = 'べ';
             }
 
             String affirmative = wordStem + nextStem + "ば";
             String negative = wordStem + nextStem + "なければ";
 
-            String[] conjugations = {affirmative, negative};
+            conjugations.put("affirmative", affirmative);
+            conjugations.put("negative", negative);
 
             return conjugations;
         }
