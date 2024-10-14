@@ -3,7 +3,7 @@ package github.io.bluskyfishing.Katsuyou.Data;
 public class N5verbs {
     public static String[][] n5List(){
         // Randint n5Verbs[randint][0]
-        String[][] n5Verbs = { {"浴びる","あびる","Ichidan verb","to dash over oneself (e.g. water),to take (e.g. shower),to bask in (e.g. the sun)to bathe in"},
+        return new String[][]{ {"浴びる","あびる","Ichidan verb","to dash over oneself (e.g. water),to take (e.g. shower),to bask in (e.g. the sun)to bathe in"},
                 {"上げる","あげる","Ichidan verb","to raise,to elevate,to do up (one's hair)to fly (a kite"},
                 {"開ける","あける","Ichidan verb","to open (a door,etc.),to unwrap (e.g. parcelpackage)"},
                 {"開く","ひらく","Godan verb","to open,to undo,to unsealto unpack"},
@@ -109,7 +109,5 @@ public class N5verbs {
                 {"有る","ある","Godan verb","to be,to exist,to live,to have"},
                 {"為る","する","auxiliary verb, intransitive verb, suru verb - included, transitive verb, suffix","to do,to carry out,to performto cause to become"}
         };
-
-        return n5Verbs;
     }
 }

@@ -47,8 +47,6 @@ public class Conjugations {
                     stem = 'ま';
                     formalStem  = 'み';
                 }
-                default -> {
-                }
             }
 
             String negative = wordStem + stem + "ない";
