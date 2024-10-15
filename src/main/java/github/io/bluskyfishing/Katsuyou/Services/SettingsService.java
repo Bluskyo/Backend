@@ -30,6 +30,7 @@ public class SettingsService {
         Map<String, String> conjugations = new HashMap<>();
         String conjugation;
 
+        System.out.println(tense);
         // Gets appropriate conjugation based on tense chosen.
         switch (tense) {
             case "present" -> conjugations = Conjugations.present(kanji, tag);
@@ -44,12 +45,11 @@ public class SettingsService {
             case "conditional" -> conjugations = Conjugations.conditional(kanji, tag);
         }
 
+        assert conjugations != null;
         if (formality.equals("informal")) {
-            assert conjugations != null;
             conjugation = conjugations.get(assertion);
         }
         else {
-            assert conjugations != null;
             conjugation = conjugations.get("formal"+ "_" + assertion);
         }
 
@@ -90,6 +90,14 @@ public class SettingsService {
 
         if (settings.present) {possibleTenses.add("present");}
         if (settings.past) {possibleTenses.add("past");}
+        if (settings.teForm) {possibleTenses.add("teForm");}
+        if (settings.potential) {possibleTenses.add("potential");}
+        if (settings.volitional) {possibleTenses.add("volitional");}
+        if (settings.passive) {possibleTenses.add("passive");}
+        if (settings.causative) {possibleTenses.add("causative");}
+        if (settings.causativePassive) {possibleTenses.add("causativePassive");}
+        if (settings.imperative) {possibleTenses.add("imperative");}
+        if (settings.conditional) {possibleTenses.add("conditional");}
 
         if (!possibleTenses.isEmpty())
         {

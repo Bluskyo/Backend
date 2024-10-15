@@ -104,7 +104,7 @@ public class Conjugations {
                     if ("行".equals(wordStem)){ // 行った is an exception in this conjugation.
                         ending = "った";
                     }else{
-                        ending = "いて";
+                        ending = "いた";
                     }
                 }
                 case 'ぐ' -> ending = "いだ";

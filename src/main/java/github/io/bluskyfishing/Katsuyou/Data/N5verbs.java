@@ -9,7 +9,7 @@ public class N5verbs {
                 {"開く","ひらく","Godan verb","to open,to undo,to unsealto unpack"},
                 {"洗う","あらう","Godan verb","to wash,to cleanse,to rinseto inquire into"},
                 {"歩く","あるく","Godan verb","to walk"},
-                {"遊ぶ","あそぶ, あすぶ","Godan verb","to play (games,sports),to enjoy oneselfto have a good time"},
+                {"遊ぶ","あそぶ","Godan verb","to play (games,sports),to enjoy oneselfto have a good time"},
                 {"会う","あう","Godan verb","to meet,to encounter,to seeto have an accident"},
                 {"違う","ちがう","Godan verb","to differ (from),to be different,to be distinctto be unlike"},
                 {"出す","だす","Godan verb","to take out,to get out,to put outto reveal"},
