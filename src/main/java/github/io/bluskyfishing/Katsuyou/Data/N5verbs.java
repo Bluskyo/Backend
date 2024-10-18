@@ -47,7 +47,7 @@ public class N5verbs {
                 {"困る","こまる","Godan verb","to be troubled,to have difficulty,to be in a fixto be at a loss"},
                 {"答える","こたえる","Ichidan verb","to answer,to reply"},
                 {"曇る","くもる","Godan verb","to get cloudy,to cloud over,to become overcastto cloud up"},
-                {"来る","くる","Kuru verb - special class, auxiliary verb, intransitive verb","to come (spatially or temporally),to approach,to arriveto come back"},
+                {"来る","くる","Kuru verb","to come (spatially or temporally),to approach,to arriveto come back"},
                 {"曲がる","まがる","Godan verb","to bend,to curve,to warpto wind"},
                 {"待つ","まつ","Godan verb","to wait,to await,to look forward toto anticipate"},
                 {"磨く","みがく","Godan verb","to polish,to shine,to burnishto scour"},
@@ -107,7 +107,7 @@ public class N5verbs {
                 {"呼ぶ","よぶ","Godan verb","to call out (to),to call,to invoke,to summon (a doctor"},
                 {"読む","よむ","Godan verb","to read,to recite (e.g. a sutra),to chant,to predict"},
                 {"有る","ある","Godan verb","to be,to exist,to live,to have"},
-                {"為る","する","auxiliary verb, intransitive verb, suru verb - included, transitive verb, suffix","to do,to carry out,to performto cause to become"}
+                {"為る","する","Suru verb","to do,to carry out,to perform,to cause to become"}
         };
     }
 }

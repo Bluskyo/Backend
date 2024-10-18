@@ -471,6 +471,7 @@ public class Conjugations {
         return null;
     }
 
+    // returns 2 conjugations.
     public static Map<String, String> imperative(String plainForm, String tag){
         Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
@@ -495,7 +496,7 @@ public class Conjugations {
             }
 
             String affirmative = wordStem + ending;
-            String negative = wordStem + ending + "な";
+            String negative = wordStem + hiragana + "な";
 
             conjugations.put("affirmative", affirmative);
             conjugations.put("negative", negative);

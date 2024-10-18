@@ -4,33 +4,29 @@ import github.io.bluskyfishing.Katsuyou.Methods.Conjugations;
 import github.io.bluskyfishing.Katsuyou.Models.Settings;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class SettingsService {
 
-    // Return 4 items (assertion, formality, tense, conjugation,)
+    // Return 4 items (assertion, formality, tense, conjugation)
+    // in case of conjugations where there's no formality returns 3 items.
     public Map<String, String> ConjugationBasedOnSettings(String kanji, String tag, Settings settings) {
-
         // decides on what assertion, formality, tense should be chosen, if multiple options are enabled.
         String assertion = getAssertion(settings);
         String formality = getFormality(settings);
         String tense = getTense(settings);
 
         Map<String, String> conjugationInfo = new HashMap<>();
-
         conjugationInfo.put("assertion", assertion);
-        conjugationInfo.put("formality", formality);
         conjugationInfo.put("tense", tense);
+
+        List<String> twoConjugations = Arrays.asList("teForm", "volitional", "causativePassive", "imperative", "conditional");
+        if (!twoConjugations.contains(tense)) conjugationInfo.put("formality", formality);
 
         Map<String, String> conjugations = new HashMap<>();
         String conjugation;
-
-        System.out.println(tense);
+        
         // Gets appropriate conjugation based on tense chosen.
         switch (tense) {
             case "present" -> conjugations = Conjugations.present(kanji, tag);
@@ -46,12 +42,10 @@ public class SettingsService {
         }
 
         assert conjugations != null;
-        if (formality.equals("informal")) {
+        if (formality.equals("informal") || twoConjugations.contains(tense)) {
             conjugation = conjugations.get(assertion);
         }
-        else {
-            conjugation = conjugations.get("formal"+ "_" + assertion);
-        }
+        else conjugation = conjugations.get("formal"+ "_" + assertion);
 
         conjugationInfo.put("conjugation", conjugation);
 
