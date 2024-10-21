@@ -1,20 +1,30 @@
 package github.io.bluskyfishing.Katsuyou.EndpointControllers;
-
-import github.io.bluskyfishing.Katsuyou.Models.DisplayKanji;
+import github.io.bluskyfishing.Katsuyou.Models.Kanji;
 import github.io.bluskyfishing.Katsuyou.Services.WordDataService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class WordDataController {
 
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
-    @GetMapping("/random")
-    public ResponseEntity<DisplayKanji> getWordData(){
-        return ResponseEntity.status(HttpStatus.OK).body(new WordDataService().word());
+    private final WordDataService wordDataService;
+
+    // Constructor injection for WordDataService
+    public WordDataController(WordDataService wordDataService) {
+        this.wordDataService = wordDataService;
     }
 
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @GetMapping("/{kanji}")
+    public List<Kanji> getEntryByKanji(@PathVariable("kanji") String kanji) {
+        return wordDataService.getEntryByKanji(kanji);
+    }
+
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @GetMapping("/random")
+    public List<Kanji> getRandomKanji() {
+        return wordDataService.getRandomEntryByKanji();
+    }
 }

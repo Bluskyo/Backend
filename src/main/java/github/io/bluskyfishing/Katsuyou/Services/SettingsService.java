@@ -56,11 +56,11 @@ public class SettingsService {
         if (settings.affirmative && settings.negative){
             boolean assertion = new Random().nextBoolean();
 
-            if (assertion)  return "affirmative";
-            else return "negative";
+            if (assertion)  return "Affirmative";
+            else return "Negative";
 
-        } else if (settings.affirmative) return "affirmative";
-        else if (settings.negative)  return  "negative";
+        } else if (settings.affirmative) return "Affirmative";
+        else if (settings.negative)  return  "Negative";
 
         return "";
     }
@@ -70,11 +70,11 @@ public class SettingsService {
         if (settings.formal && settings.informal){
             boolean formal = new Random().nextBoolean();
 
-            if (formal)  return  "formal";
-            else  return "informal";
+            if (formal)  return  "Formal";
+            else  return "Informal";
 
-        } else if (settings.formal)  return "formal";
-        else if (settings.informal)  return "informal";
+        } else if (settings.formal)  return "Formal";
+        else if (settings.informal)  return "Informal";
 
         return "";
     }
@@ -82,16 +82,16 @@ public class SettingsService {
     private String getTense(Settings settings) {
         List<String> possibleTenses = new ArrayList<>();
 
-        if (settings.present) {possibleTenses.add("present");}
-        if (settings.past) {possibleTenses.add("past");}
-        if (settings.teForm) {possibleTenses.add("teForm");}
-        if (settings.potential) {possibleTenses.add("potential");}
-        if (settings.volitional) {possibleTenses.add("volitional");}
-        if (settings.passive) {possibleTenses.add("passive");}
-        if (settings.causative) {possibleTenses.add("causative");}
-        if (settings.causativePassive) {possibleTenses.add("causativePassive");}
-        if (settings.imperative) {possibleTenses.add("imperative");}
-        if (settings.conditional) {possibleTenses.add("conditional");}
+        if (settings.present) {possibleTenses.add("Present");}
+        if (settings.past) {possibleTenses.add("Past");}
+        if (settings.teForm) {possibleTenses.add("Te-Form");}
+        if (settings.potential) {possibleTenses.add("Potential");}
+        if (settings.volitional) {possibleTenses.add("Volitional");}
+        if (settings.passive) {possibleTenses.add("Passive");}
+        if (settings.causative) {possibleTenses.add("Causative");}
+        if (settings.causativePassive) {possibleTenses.add("Causative Passive");}
+        if (settings.imperative) {possibleTenses.add("Imperative");}
+        if (settings.conditional) {possibleTenses.add("Conditional");}
 
         if (!possibleTenses.isEmpty())
         {

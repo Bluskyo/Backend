@@ -10,7 +10,7 @@ public class AllConjugationsService {
 
         Map<String, Map<String, String>> allConjugationsDict = new HashMap<>();
 
-        allConjugationsDict.put("Present", Conjugations.present(kanji, tag));
+        allConjugationsDict.put("present", Conjugations.present(kanji, tag));
         allConjugationsDict.put("past", Conjugations.past(kanji, tag));
         allConjugationsDict.put("teForm", Conjugations.teForm(kanji, tag));
         allConjugationsDict.put("potential", Conjugations.potential(kanji, tag));
