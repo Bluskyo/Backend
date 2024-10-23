@@ -18,14 +18,15 @@ public class SettingsService {
         String tense = getTense(settings);
 
         Map<String, String> conjugationInfo = new HashMap<>();
-        conjugationInfo.put("assertion", assertion);
-        conjugationInfo.put("tense", tense);
 
-        List<String> twoConjugations = Arrays.asList("Te-form", "Volitional", "Causative Passive", "Imperative", "Conditional");
+        conjugationInfo.put("tense", tense);
+        if (!tense.equals("Volitional")) conjugationInfo.put("assertion", assertion);
+
+        List<String> twoConjugations = Arrays.asList("Te-Form", "Causative Passive", "Imperative", "Conditional");
         if (!twoConjugations.contains(tense)) conjugationInfo.put("formality", formality);
 
         Map<String, String> conjugations = new HashMap<>();
-        String conjugation;
+        String conjugation = "";
         
         // Gets appropriate conjugation based on tense chosen.
         switch (tense) {
@@ -41,10 +42,16 @@ public class SettingsService {
             case "Conditional" -> conjugations = Conjugations.conditional(kanji, tag);
         }
 
+        List<String> fourConjugations = Arrays.asList("Present", "Past", "Potential", "Passive", "Causative");
+
         assert conjugations != null;
-        if (formality.equals("Informal") || twoConjugations.contains(tense)) {
+        if (fourConjugations.contains(tense) && formality.equals("Informal") || twoConjugations.contains(tense)) {
             conjugation = conjugations.get(assertion);
-        } else conjugation = conjugations.get("Formal"+ "_" + assertion);
+        } else if (fourConjugations.contains(tense) && formality.equals("Formal")) {
+            conjugation = conjugations.get("Formal"+ "_" + assertion);
+        } else if (tense.equals("Volitional")) {
+            conjugation = conjugations.get(formality);
+        }
 
         conjugationInfo.put("conjugation", conjugation);
 
@@ -55,7 +62,7 @@ public class SettingsService {
         if (settings.affirmative && settings.negative){
             boolean assertion = new Random().nextBoolean();
 
-            if (assertion) return "Affirmative";
+            if (assertion)  return "Affirmative";
             else return "Negative";
 
         } else if (settings.affirmative) return "Affirmative";
@@ -69,11 +76,11 @@ public class SettingsService {
         if (settings.formal && settings.informal){
             boolean formal = new Random().nextBoolean();
 
-            if (formal) return  "Formal";
-            else return "Informal";
+            if (formal)  return  "Formal";
+            else  return "Informal";
 
-        } else if (settings.formal) return "Formal";
-        else if (settings.informal) return "Informal";
+        } else if (settings.formal)  return "Formal";
+        else if (settings.informal)  return "Informal";
 
         return "";
     }

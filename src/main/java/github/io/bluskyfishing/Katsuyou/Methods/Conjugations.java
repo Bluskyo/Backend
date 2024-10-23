@@ -250,18 +250,18 @@ public class Conjugations {
         return null;
     }
 
-    // returns only 2 conjugations.
+    // returns only 2 conjugations (Formal/Informal).
     public static Map<String, String> volitional(String plainForm, String tag){
 
         Map<String, String> conjugations = new HashMap<>();
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
 
         if ("Ichidan".equals(tag) || "Suru".equals(tag) || "Kuru".equals(tag)){
-            String affirmative = wordStem + "よう";
-            String negative = wordStem + "ましょう";
+            String informal = wordStem + "よう";
+            String formal = wordStem + "ましょう";
 
-            conjugations.put("Affirmative", affirmative);
-            conjugations.put("Negative", negative);
+            conjugations.put("Informal", informal);
+            conjugations.put("Formal", formal);
 
             return conjugations;
         }
@@ -286,11 +286,11 @@ public class Conjugations {
                 }
             }
 
-            String affirmative = wordStem + stem + "う";
-            String negative = wordStem + formalStem + "ましょう";
+            String informal = wordStem + stem + "う";
+            String formal = wordStem + formalStem + "ましょう";
 
-            conjugations.put("Affirmative", affirmative);
-            conjugations.put("Negative", negative);
+            conjugations.put("Informal", informal);
+            conjugations.put("Formal", formal);
 
             return conjugations;
         }

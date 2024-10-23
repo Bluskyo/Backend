@@ -22,7 +22,6 @@ public class GetTag {
         return "NOT FOUND";
     }
 
-
     public static String GetTagFromPos(String word){
         String[] allTags = word.split(",", 10);
         // Parse allTags with a method? Get Godan, Ichidan, Kuru, Suru verbs.
