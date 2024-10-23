@@ -2,13 +2,13 @@ package github.io.bluskyfishing.Katsuyou.Services;
 
 import github.io.bluskyfishing.Katsuyou.Data.N5;
 import github.io.bluskyfishing.Katsuyou.Methods.Conjugations;
+import github.io.bluskyfishing.Katsuyou.Methods.GetTag;
 import github.io.bluskyfishing.Katsuyou.Models.Kanji;
 import github.io.bluskyfishing.Katsuyou.Repositories.KanjiRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -39,26 +39,7 @@ public class WordDataService {
     public Map<String, Map<String, String>> getAllConjugations(String kanji) {
 
         Kanji word = this.getEntryByKanji(kanji);
-
-        String[] allTags = word.pos.split(",", 10);
-        String tag = "";
-
-        // Parse allTags with a method? Get Godan, Ichidan, Kuru, Suru verbs.
-        for (String stringTags : allTags){
-            if (stringTags.contains("Godan")) {
-                tag = "Godan";
-                break;
-            } else if (stringTags.contains("Ichidan")) {
-                tag = "Ichidan";
-                break;
-            } else if (stringTags.contains("Kuru")) {
-                tag = "Kuru";
-                break;
-            } else if (stringTags.contains("Suru")) {
-                tag += "Suru";
-                break;
-            }
-        }
+        String tag = GetTag.GetTagFromPos(word);
 
         Map<String, Map<String, String>> allConjugationsDict = new HashMap<>();
 

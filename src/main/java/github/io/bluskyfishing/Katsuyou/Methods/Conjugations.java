@@ -75,10 +75,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + "ました";
             String formalNegative = wordStem + "ませんでした";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
+            conjugations.put("Formal_Affirmative", formalAffirmative);
+            conjugations.put("Formal_Negative", formalNegative);
 
             return conjugations;
         }
@@ -139,10 +139,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + formalStem +"ました";
             String formalNegative = wordStem + formalStem +"ませんでした";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
+            conjugations.put("Formal_Affirmative", formalAffirmative);
+            conjugations.put("Formal_Negative", formalNegative);
 
             return conjugations;
         }
@@ -161,8 +161,8 @@ public class Conjugations {
             String affirmative = wordStem + "て";
             String negative = wordStem + "なくて";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
 
             return conjugations;
         }
@@ -188,8 +188,8 @@ public class Conjugations {
             String affirmative = wordStem + ending;
             String negative = wordStem + "なくて";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
 
             return conjugations;
         }
@@ -208,10 +208,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + "られます";
             String formalNegative = wordStem + "られません";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
+            conjugations.put("Formal_Affirmative", formalAffirmative);
+            conjugations.put("Formal_Negative", formalNegative);
 
             return conjugations;
         }
@@ -231,23 +231,18 @@ public class Conjugations {
             String formalAffirmative = wordStem + stem + "ます";
             String formalNegative = wordStem + stem + "ません";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
+            conjugations.put("Formal_Affirmative", formalAffirmative);
+            conjugations.put("Formal_Negative", formalNegative);
 
             return conjugations;
         }
         else if ("Suru".equals(tag)){
-            String affirmative = "できる";
-            String negative = "できない";
-            String formalAffirmative = "できます";
-            String formalNegative = "できません";
-
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", "できる");
+            conjugations.put("Negative", "できない");
+            conjugations.put("Formal_Affirmative", "できます");
+            conjugations.put("Formal_Negative", "できません");
 
             return conjugations;
         }
@@ -265,8 +260,8 @@ public class Conjugations {
             String affirmative = wordStem + "よう";
             String negative = wordStem + "ましょう";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
 
             return conjugations;
         }
@@ -294,8 +289,8 @@ public class Conjugations {
             String affirmative = wordStem + stem + "う";
             String negative = wordStem + formalStem + "ましょう";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
 
             return conjugations;
         }
@@ -314,10 +309,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + "られます";
             String formalNegative = wordStem + "られません";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
+            conjugations.put("Formal_Affirmative", formalAffirmative);
+            conjugations.put("Formal_Negative", formalNegative);
 
             return conjugations;
         }
@@ -339,23 +334,18 @@ public class Conjugations {
             String formalAffirmative = wordStem + stem + "れます";
             String formalNegative = wordStem + stem + "れません";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
+            conjugations.put("Formal_Affirmative", formalAffirmative);
+            conjugations.put("Formal_Negative", formalNegative);
 
             return conjugations;
         }
         else if ("Suru".equals(tag)){
-            String affirmative = "される";
-            String negative = "されない";
-            String formalAffirmative = "されます";
-            String formalNegative = "されません";
-
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", "される");
+            conjugations.put("Negative", "されない");
+            conjugations.put("Formal_Affirmative", "されます");
+            conjugations.put("Formal_Negative", "されません");
 
             return conjugations;
         }
@@ -374,10 +364,10 @@ public class Conjugations {
             String formalAffirmative = wordStem + "させます";
             String formalNegative = wordStem + "させません";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
+            conjugations.put("Formal_Affirmative", formalAffirmative);
+            conjugations.put("Formal_Negative", formalNegative);
 
             return conjugations;
         }
@@ -399,23 +389,18 @@ public class Conjugations {
             String formalAffirmative = wordStem + stem + "せます";
             String formalNegative = wordStem + stem + "せません";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
+            conjugations.put("Formal_Affirmative", formalAffirmative);
+            conjugations.put("Formal_Negative", formalNegative);
 
             return conjugations;
         }
         else if ("Suru".equals(tag)){
-            String affirmative = "させる";
-            String negative = "させない";
-            String formalAffirmative = "させます";
-            String formalNegative = "させません";
-
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
-            conjugations.put("formal_affirmative", formalAffirmative);
-            conjugations.put("formal_negative", formalNegative);
+            conjugations.put("Affirmative", "させる");
+            conjugations.put("Negative", "させない");
+            conjugations.put("Formal_Affirmative", "させます");
+            conjugations.put("Formal_Negative", "させません");
 
             return conjugations;
         }
@@ -432,8 +417,8 @@ public class Conjugations {
             String affirmative = wordStem + "せられる";
             String negative = wordStem + "せられない";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
 
             return conjugations;
         }
@@ -453,17 +438,14 @@ public class Conjugations {
             String affirmative = wordStem + stem + "せられる";
             String negative = wordStem + stem + "せられない";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
 
             return conjugations;
         }
         else if ("Suru".equals(tag)){
-            String affirmative = "させられる";
-            String negative = "させられない";
-
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", "させられる");
+            conjugations.put("Negative", "させられない");
 
             return conjugations;
         }
@@ -480,8 +462,8 @@ public class Conjugations {
             String affirmative = wordStem + "ろ";
             String negative = wordStem + "な";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
 
             return conjugations;
         }
@@ -498,17 +480,14 @@ public class Conjugations {
             String affirmative = wordStem + ending;
             String negative = wordStem + hiragana + "な";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
 
             return conjugations;
         }
         else if ("Kuru".equals(tag)){
-            String affirmative = "来い";
-            String negative = "来るな";
-
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", "来い");
+            conjugations.put("Negative", "来るな");
 
             return conjugations;
         }
@@ -525,8 +504,8 @@ public class Conjugations {
             String affirmative = wordStem + "れば";
             String negative = wordStem + "なければ";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
 
             return conjugations;
         }
@@ -544,8 +523,8 @@ public class Conjugations {
             String affirmative = wordStem + nextStem + "ば";
             String negative = wordStem + nextStem + "なければ";
 
-            conjugations.put("affirmative", affirmative);
-            conjugations.put("negative", negative);
+            conjugations.put("Affirmative", affirmative);
+            conjugations.put("Negative", negative);
 
             return conjugations;
         }
