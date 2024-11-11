@@ -9,13 +9,13 @@ public class GetTag {
 
         // Parse allTags with a method? Get Godan, Ichidan, Kuru, Suru verbs.
         for (String stringTags : allTags){
-            if (stringTags.contains("Godan")) {
+            if (stringTags.toLowerCase().contains("godan")) {
                 return "Godan";
-            } else if (stringTags.contains("Ichidan")) {
+            } else if (stringTags.toLowerCase().contains("ichidan")) {
                 return "Ichidan";
-            } else if (stringTags.contains("Kuru")) {
+            } else if (stringTags.toLowerCase().contains("kuru")) {
                return "Kuru";
-            } else if (stringTags.contains("Suru")) {
+            } else if (stringTags.toLowerCase().contains("suru")) {
                 return "Suru";
             }
         }
@@ -26,13 +26,13 @@ public class GetTag {
         String[] allTags = word.split(",", 10);
         // Parse allTags with a method? Get Godan, Ichidan, Kuru, Suru verbs.
         for (String stringTags : allTags){
-            if (stringTags.contains("Godan")) {
+            if (stringTags.toLowerCase().contains("godan")) {
                 return "Godan";
-            } else if (stringTags.contains("Ichidan")) {
+            } else if (stringTags.toLowerCase().contains("ichidan")) {
                 return "Ichidan";
-            } else if (stringTags.contains("Kuru")) {
+            } else if (stringTags.toLowerCase().contains("kuru")) {
                 return "Kuru";
-            } else if (stringTags.contains("Suru")) {
+            } else if (stringTags.toLowerCase().contains("suru")) {
                 return "Suru";
             }
         }
