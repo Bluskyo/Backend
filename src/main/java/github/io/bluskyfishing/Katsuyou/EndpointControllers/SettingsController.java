@@ -20,18 +20,15 @@ public class SettingsController {
 
             // Get settings and kanji from apply settings.
             @RequestBody Settings settings,
-            @RequestHeader(value = "entry", required = true) String encodedEntry,
-            @RequestHeader(value = "pos", required = true) String encodedPos) {
+            @RequestHeader(value = "entry") String encodedEntry,
+            @RequestHeader(value = "reading") String encodedReading,
+            @RequestHeader(value = "pos") String encodedPos) {
 
         String entry = URLDecoder.decode(encodedEntry, StandardCharsets.UTF_8);
+        String reading = URLDecoder.decode(encodedReading, StandardCharsets.UTF_8);
         String pos = URLDecoder.decode(encodedPos, StandardCharsets.UTF_8);
         String tag = GetTag.GetTagFromPos(pos);
 
-        // System.out.println(encodedKanji);
-        // System.out.println("Received kanji: " + entry);
-        // System.out.println("Received tag: " + tag);
-        // System.out.println("Received settings" + settings);
-
-        return ResponseEntity.status(HttpStatus.OK).body(new SettingsService().ConjugationBasedOnSettings(entry, tag, settings));
+        return ResponseEntity.status(HttpStatus.OK).body(new SettingsService().ConjugationBasedOnSettings(entry, reading, tag, settings));
     }
 }

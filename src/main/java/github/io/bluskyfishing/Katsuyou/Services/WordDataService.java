@@ -39,20 +39,22 @@ public class WordDataService {
     public Map<String, Map<String, String>> getAllConjugations(String kanji) {
 
         Kanji word = this.getEntryByKanji(kanji);
+
+        String reading = word.reading;
         String tag = GetTag.GetTagFromPos(word);
 
         Map<String, Map<String, String>> allConjugationsDict = new HashMap<>();
 
-        allConjugationsDict.put("present", Conjugations.present(kanji, tag));
-        allConjugationsDict.put("past", Conjugations.past(kanji, tag));
-        allConjugationsDict.put("teForm", Conjugations.teForm(kanji, tag));
-        allConjugationsDict.put("potential", Conjugations.potential(kanji, tag));
-        allConjugationsDict.put("volitional", Conjugations.volitional(kanji, tag));
-        allConjugationsDict.put("passive", Conjugations.passive(kanji, tag));
-        allConjugationsDict.put("causative", Conjugations.causative(kanji, tag));
-        allConjugationsDict.put("causativePassive", Conjugations.causativePassive(kanji, tag));
-        allConjugationsDict.put("imperative", Conjugations.imperative(kanji, tag));
-        allConjugationsDict.put("conditional", Conjugations.conditional(kanji, tag));
+        allConjugationsDict.put("present", Conjugations.present(kanji, reading, tag));
+        allConjugationsDict.put("past", Conjugations.past(kanji, reading, tag));
+        allConjugationsDict.put("teForm", Conjugations.teForm(kanji, reading, tag));
+        allConjugationsDict.put("potential", Conjugations.potential(kanji, reading, tag));
+        allConjugationsDict.put("volitional", Conjugations.volitional(kanji, reading, tag));
+        allConjugationsDict.put("passive", Conjugations.passive(kanji, reading, tag));
+        allConjugationsDict.put("causative", Conjugations.causative(kanji, reading, tag));
+        allConjugationsDict.put("causativePassive", Conjugations.causativePassive(kanji, reading, tag));
+        allConjugationsDict.put("imperative", Conjugations.imperative(kanji, reading, tag));
+        allConjugationsDict.put("conditional", Conjugations.conditional(kanji, reading, tag));
 
         return allConjugationsDict;
     }

@@ -11,7 +11,7 @@ public class SettingsService {
 
     // Return 4 items (assertion, formality, tense, conjugation)
     // in case of conjugations where there's no formality returns 3 items.
-    public Map<String, String> ConjugationBasedOnSettings(String kanji, String tag, Settings settings) {
+    public Map<String, String> ConjugationBasedOnSettings(String kanji, String reading, String tag, Settings settings) {
         // decides on what assertion, formality, tense should be chosen, if multiple options are enabled.
         String assertion = getAssertion(settings);
         String formality = getFormality(settings);
@@ -27,32 +27,37 @@ public class SettingsService {
 
         Map<String, String> conjugations = new HashMap<>();
         String conjugation = "";
+        String hiraganaReading = "";
         
         // Gets appropriate conjugation based on tense chosen.
         switch (tense) {
-            case "Present" -> conjugations = Conjugations.present(kanji, tag);
-            case "Past" -> conjugations = Conjugations.past(kanji, tag);
-            case "Te-Form" -> conjugations = Conjugations.teForm(kanji, tag);
-            case "Potential" -> conjugations = Conjugations.potential(kanji, tag);
-            case "Volitional" -> conjugations = Conjugations.volitional(kanji, tag);
-            case "Passive" -> conjugations = Conjugations.passive(kanji, tag);
-            case "Causative" -> conjugations = Conjugations.causative(kanji, tag);
-            case "Causative Passive" -> conjugations = Conjugations.causativePassive(kanji, tag);
-            case "Imperative" -> conjugations = Conjugations.imperative(kanji, tag);
-            case "Conditional" -> conjugations = Conjugations.conditional(kanji, tag);
+            case "Present" -> conjugations = Conjugations.present(kanji, reading, tag);
+            case "Past" -> conjugations = Conjugations.past(kanji, reading, tag);
+            case "Te-Form" -> conjugations = Conjugations.teForm(kanji, reading, tag);
+            case "Potential" -> conjugations = Conjugations.potential(kanji, reading, tag);
+            case "Volitional" -> conjugations = Conjugations.volitional(kanji, reading, tag);
+            case "Passive" -> conjugations = Conjugations.passive(kanji, reading, tag);
+            case "Causative" -> conjugations = Conjugations.causative(kanji, reading, tag);
+            case "Causative Passive" -> conjugations = Conjugations.causativePassive(kanji, reading, tag);
+            case "Imperative" -> conjugations = Conjugations.imperative(kanji, reading, tag);
+            case "Conditional" -> conjugations = Conjugations.conditional(kanji, reading, tag);
         }
 
         List<String> fourConjugations = Arrays.asList("Present", "Past", "Potential", "Passive", "Causative");
 
         assert conjugations != null;
         if (fourConjugations.contains(tense) && formality.equals("Informal") || twoConjugations.contains(tense)) {
+            hiraganaReading = conjugations.get("Hiragana_" + assertion);
             conjugation = conjugations.get(assertion);
         } else if (fourConjugations.contains(tense) && formality.equals("Formal")) {
+            hiraganaReading = conjugations.get("Hiragana_" + "Formal_" + assertion);
             conjugation = conjugations.get("Formal"+ "_" + assertion);
         } else if (tense.equals("Volitional")) {
+            hiraganaReading = conjugations.get("Hiragana_" + assertion);
             conjugation = conjugations.get(formality);
         }
 
+        conjugationInfo.put("reading", hiraganaReading);
         conjugationInfo.put("conjugation", conjugation);
 
         return conjugationInfo;
