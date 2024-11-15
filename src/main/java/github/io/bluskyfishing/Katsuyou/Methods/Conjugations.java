@@ -394,14 +394,14 @@ public class Conjugations {
             String informal = wordStem + "よう";
             String formal = wordStem + "ましょう";
 
-            String hiraganaInformal = readingWordStem + "よう";
-            String hiraganaFormal= readingWordStem + "ましょう";
+            String hiraganaAffirmative = readingWordStem + "よう";
+            String hiraganaNegative = readingWordStem + "ましょう";
 
             conjugations.put("Informal", informal);
             conjugations.put("Formal", formal);
 
-            conjugations.put("Hiragana_Informal", hiraganaInformal);
-            conjugations.put("Hiragana_Formal", hiraganaFormal);
+            conjugations.put("Hiragana_Affirmative", hiraganaAffirmative);
+            conjugations.put("Hiragana_Negative", hiraganaNegative);
 
             return conjugations;
         } else if ("Godan".equals(tag)){
@@ -428,14 +428,14 @@ public class Conjugations {
             String informal = wordStem + stem + "う";
             String formal = wordStem + formalStem + "ましょう";
 
-            String hiraganaInformal = readingWordStem + stem + "う";
-            String hiraganaformal = readingWordStem + formalStem + "ましょう";
+            String hiraganaAffirmative = readingWordStem + stem + "う";
+            String hiraganaNegative = readingWordStem + formalStem + "ましょう";
 
             conjugations.put("Informal", informal);
             conjugations.put("Formal", formal);
 
-            conjugations.put("Hiragana_Informal", hiraganaInformal);
-            conjugations.put("Hiragana_Formal", hiraganaformal);
+            conjugations.put("Hiragana_Affirmative", hiraganaAffirmative);
+            conjugations.put("Hiragana_Negative", hiraganaNegative);
 
             return conjugations;
         } else if ("Kuru".equals(tag)) {
