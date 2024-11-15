@@ -11,7 +11,7 @@ public class Conjugations {
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
         String readingWordStem = reading.substring(0, reading.length() - 1);
 
-        if ("Ichidan".equals(tag) || ("Suru".equals(tag) || "Kuru".equals(tag))){ // Ru-Verbs
+        if ("Ichidan".equals(tag)){ // Ru-Verbs
             String negative = wordStem + "ない";
             String formalAffirmative = wordStem + "ます";
             String formalNegative = wordStem + "ません";
@@ -31,8 +31,7 @@ public class Conjugations {
             conjugations.put("hiragana_formal_negative", hiraganaFormalNegative);
 
             return conjugations;
-        }
-        else if ("Godan".equals(tag)){ // U-Verbs
+        } else if ("Godan".equals(tag)){ // U-Verbs
 
             int nextHiragana = plainForm.charAt(plainForm.length() - 1 ) - 4; // finds next hiragana of conjugation.
             char stem = (char)nextHiragana;
@@ -78,6 +77,25 @@ public class Conjugations {
             conjugations.put("Hiragana_Formal_Negative", readingFormalNegative);
 
             return conjugations;
+        } else if ("Kuru".equals(tag)) {
+            conjugations.put("Affirmative", plainForm);
+            conjugations.put("Negative", "来ない");
+            conjugations.put("formal_affirmative", "来ます");
+            conjugations.put("formal_negative", "来ませｎ");
+
+            conjugations.put("hiragana_affirmative", reading);
+            conjugations.put("hiragana_negative", "こない");
+            conjugations.put("hiragana_formal_affirmative", "きます");
+            conjugations.put("hiragana_formal_negative", "きません");
+
+            return conjugations;
+        } else if ("Suru".equals(tag)) { // Suru kanji almost never used, uses only hiragana.
+            conjugations.put("Affirmative", reading);
+            conjugations.put("Negative", "しない");
+            conjugations.put("formal_affirmative", "します");
+            conjugations.put("formal_negative", "しません");
+
+            return conjugations;
         }
 
         return null;
@@ -89,7 +107,7 @@ public class Conjugations {
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
         String readingWordStem = reading.substring(0, reading.length() - 1);
 
-        if ("Ichidan".equals(tag) || ("Suru".equals(tag) || "Kuru".equals(tag))){
+        if ("Ichidan".equals(tag)) {
 
             String affirmative = wordStem + "た";
             String negative = wordStem + "なかった";
@@ -112,8 +130,7 @@ public class Conjugations {
             conjugations.put("Hiragana_Formal_Negative", readingFormalNegative);
 
             return conjugations;
-        }
-        else if ("Godan".equals(tag)){
+        } else if ("Godan".equals(tag)){
 
             char hiragana = plainForm.charAt(plainForm.length() - 1);
 
@@ -186,6 +203,26 @@ public class Conjugations {
             conjugations.put("Hiragana_Formal_Negative", readingFormalNegative);
 
             return conjugations;
+        } else if ("Kuru".equals(tag)){
+
+            conjugations.put("Affirmative", "来た");
+            conjugations.put("Negative", "来なかった");
+            conjugations.put("Formal_Affirmative", "来ました");
+            conjugations.put("Formal_Negative", "来ませんでした");
+
+            conjugations.put("Hiragana_Affirmative", "きた");
+            conjugations.put("Hiragana_Negative", "こなかった");
+            conjugations.put("Hiragana_Formal_Affirmative", "きました");
+            conjugations.put("Hiragana_Formal_Negative", "きませんでした");
+
+            return conjugations;
+        } else if ("Suru".equals(tag)){
+            conjugations.put("Affirmative", "した");
+            conjugations.put("Negative", "しなかった");
+            conjugations.put("Formal_Affirmative", "しました");
+            conjugations.put("Formal_Negative", "しませんでした");
+
+            return conjugations;
         }
 
         return null;
@@ -199,7 +236,7 @@ public class Conjugations {
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
         String readingWordStem = reading.substring(0, reading.length() - 1);
 
-        if ("Ichidan".equals(tag) || "Suru".equals(tag) || "Kuru".equals(tag) ){
+        if ("Ichidan".equals(tag)){
 
             String affirmative = wordStem + "て";
             String negative = wordStem + "なくて";
@@ -212,8 +249,7 @@ public class Conjugations {
             conjugations.put("Hiragana_Negative", hiraganaNegative);
 
             return conjugations;
-        }
-        else if ("Godan".equals(tag)){
+        } else if ("Godan".equals(tag)){
 
             char hiragana = plainForm.charAt(plainForm.length() - 1);
             String ending = "";
@@ -245,6 +281,19 @@ public class Conjugations {
             conjugations.put("Hiragana_Negative", hiragana_negative);
 
             return conjugations;
+        } else if ("Kuru".equals(tag)) {
+            conjugations.put("Affirmative", "来て");
+            conjugations.put("Negative", "来てなくて");
+
+            conjugations.put("Hiragana_Affirmative", "きて");
+            conjugations.put("Hiragana_Negative", "きてなくて");
+
+            return conjugations;
+        } else if ("Suru".equals(tag)){
+            conjugations.put("Affirmative", "して");
+            conjugations.put("Negative", "しなくて");
+
+            return conjugations;
         }
 
         return null;
@@ -256,7 +305,7 @@ public class Conjugations {
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
         String readingWordStem = reading.substring(0, reading.length() - 1);
 
-        if ("Ichidan".equals(tag) || "Kuru".equals(tag)){
+        if ("Ichidan".equals(tag)){
             String affirmative = wordStem + "られる";
             String negative = wordStem + "られない";
             String formalAffirmative = wordStem + "られます";
@@ -278,8 +327,7 @@ public class Conjugations {
             conjugations.put("Hiragana_Formal_Negative", readingFormalNegative);
 
             return conjugations;
-        }
-        else if ("Godan".equals(tag)){
+        } else if ("Godan".equals(tag)){
             int nextHiragana = plainForm.charAt(plainForm.length() - 1 ) + 2; // finds next hiragana of conjugation.
             char stem = (char)nextHiragana;
 
@@ -311,8 +359,19 @@ public class Conjugations {
             conjugations.put("Hiragana_Formal_Negative", readingFormalNegative);
 
             return conjugations;
-        }
-        else if ("Suru".equals(tag)){
+        } else if ("Kuru".equals(tag)){
+            conjugations.put("Affirmative", "来られる");
+            conjugations.put("Negative", "来られない");
+            conjugations.put("Formal_Affirmative", "来られます");
+            conjugations.put("Formal_Negative", "来られません");
+
+            conjugations.put("Hiragana_Affirmative", "こられる");
+            conjugations.put("Hiragana_Negative", "こられない");
+            conjugations.put("Hiragana_Formal_Affirmative", "こられます");
+            conjugations.put("Hiragana_Formal_Negative", "こられません");
+
+            return conjugations;
+        } else if ("Suru".equals(tag)){
             conjugations.put("Affirmative", "できる");
             conjugations.put("Negative", "できない");
             conjugations.put("Formal_Affirmative", "できます");
@@ -331,7 +390,7 @@ public class Conjugations {
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
         String readingWordStem = reading.substring(0, reading.length() - 1);
 
-        if ("Ichidan".equals(tag) || "Suru".equals(tag) || "Kuru".equals(tag)){
+        if ("Ichidan".equals(tag)){
             String informal = wordStem + "よう";
             String formal = wordStem + "ましょう";
 
@@ -345,8 +404,7 @@ public class Conjugations {
             conjugations.put("Hiragana_Negative", hiraganaNegative);
 
             return conjugations;
-        }
-        else if ("Godan".equals(tag)){
+        } else if ("Godan".equals(tag)){
             int nextHiragana = plainForm.charAt(plainForm.length() - 1 ) + 4; // finds next hiragana of conjugation.
             char stem = (char)nextHiragana;
 
@@ -380,6 +438,19 @@ public class Conjugations {
             conjugations.put("Hiragana_Negative", hiraganaNegative);
 
             return conjugations;
+        } else if ("Kuru".equals(tag)) {
+            conjugations.put("Informal", "来よう");
+            conjugations.put("Formal", "来ましょう");
+
+            conjugations.put("Hiragana_Informal", "こよう");
+            conjugations.put("Hiragana_Formal", "きましょう");
+
+            return conjugations;
+        } else if ("Suru".equals(tag)) {
+            conjugations.put("Informal", "しよう");
+            conjugations.put("Formal", "しましょう");
+
+            return conjugations;
         }
 
         return null;
@@ -391,7 +462,7 @@ public class Conjugations {
         String wordStem = plainForm.substring(0, plainForm.length() - 1); //Creates string without last hiragana in word.
         String readingWordStem = reading.substring(0, reading.length() - 1);
 
-        if ("Ichidan".equals(tag) || "Kuru".equals(tag)){
+        if ("Ichidan".equals(tag)){
             String affirmative = wordStem + "られる";
             String negative = wordStem + "られない";
             String formalAffirmative = wordStem + "られます";
@@ -413,8 +484,7 @@ public class Conjugations {
             conjugations.put("Hiragana_Formal_Negative", readingFormalNegative);
 
             return conjugations;
-        }
-        else if ("Godan".equals(tag)){
+        } else if ("Godan".equals(tag)){
             int nextHiragana = plainForm.charAt(plainForm.length() - 1 ) - 4; // finds next hiragana of conjugation.
             char stem = (char)nextHiragana;
 
@@ -448,12 +518,23 @@ public class Conjugations {
             conjugations.put("Hiragana_Formal_Negative", readingFormalNegative);
 
             return conjugations;
-        }
-        else if ("Suru".equals(tag)){
+        } else if ("Kuru".equals(tag)) {
+            conjugations.put("Affirmative", "来られる");
+            conjugations.put("Negative", "来られない");
+            conjugations.put("Formal_Affirmative", "来られます");
+            conjugations.put("Formal_Negative", "来られません");
+
+            conjugations.put("Hiragana_Affirmative", "こられる");
+            conjugations.put("Hiragana_Negative", "こられない");
+            conjugations.put("Hiragana_Formal_Affirmative", "こられます");
+            conjugations.put("Hiragana_Formal_Negative", "こられません");
+
+            return conjugations;
+        } else if ("Suru".equals(tag)){
             conjugations.put("Affirmative", "される");
             conjugations.put("Negative", "されない");
             conjugations.put("Formal_Affirmative", "されます");
-            conjugations.put("Formal_Negative", "されません");
+            conjugations.put("Formal_Negative", "されませｎ");
 
             return conjugations;
         }
@@ -467,7 +548,7 @@ public class Conjugations {
         String wordStem = plainForm.substring(0, plainForm.length() - 1);
         String readingWordStem = reading.substring(0, reading.length() - 1);
 
-        if ("Ichidan".equals(tag) || "Kuru".equals(tag)){
+        if ("Ichidan".equals(tag)){
             String affirmative = wordStem + "させる";
             String negative = wordStem + "させない";
             String formalAffirmative = wordStem + "させます";
@@ -489,8 +570,7 @@ public class Conjugations {
             conjugations.put("Hiragana_Formal_Negative", readingFormalNegative);
 
             return conjugations;
-        }
-        else if ("Godan".equals(tag)){
+        } else if ("Godan".equals(tag)){
             int nextHiragana = plainForm.charAt(plainForm.length() - 1 ) - 4; // finds next hiragana of conjugation.
             char stem = (char)nextHiragana;
 
@@ -524,8 +604,19 @@ public class Conjugations {
             conjugations.put("Hiragana_Formal_Negative", readingFormalNegative);
 
             return conjugations;
-        }
-        else if ("Suru".equals(tag)){
+        } else if ("Kuru".equals(tag)){
+            conjugations.put("Affirmative", "来させる");
+            conjugations.put("Negative", "来させない");
+            conjugations.put("Formal_Affirmative", "来させます");
+            conjugations.put("Formal_Negative", "来させません");
+
+            conjugations.put("Hiragana_Affirmative", "こさせる");
+            conjugations.put("Hiragana_Negative", "こさせない");
+            conjugations.put("Hiragana_Formal_Affirmative", "こさせます");
+            conjugations.put("Hiragana_Formal_Negative", "こさせません");
+
+            return conjugations;
+        } else if ("Suru".equals(tag)){
             conjugations.put("Affirmative", "させる");
             conjugations.put("Negative", "させない");
             conjugations.put("Formal_Affirmative", "させます");
@@ -545,7 +636,7 @@ public class Conjugations {
         String wordStem = plainForm.substring(0, plainForm.length() - 1);
         String readingWordStem = reading.substring(0, reading.length() - 1);
 
-        if ("Ichidan".equals(tag) || "Kuru".equals(tag)){
+        if ("Ichidan".equals(tag)){
             String affirmative = wordStem + "せられる";
             String negative = wordStem + "せられない";
 
@@ -559,8 +650,7 @@ public class Conjugations {
             conjugations.put("Hiragana_Negative", readingNegative);
 
             return conjugations;
-        }
-        else if ("Godan".equals(tag)){
+        } else if ("Godan".equals(tag)){
             int nextHiragana = plainForm.charAt(plainForm.length() - 1 ) - 4; // finds next hiragana of conjugation.
             char stem = (char)nextHiragana;
 
@@ -586,8 +676,15 @@ public class Conjugations {
             conjugations.put("Hiragana_Negative", readingNegative);
 
             return conjugations;
-        }
-        else if ("Suru".equals(tag)){
+        } else if ("Kuru".equals(tag)){
+            conjugations.put("Affirmative", "来させられる");
+            conjugations.put("Negative", "来させられない");
+
+            conjugations.put("Hiragana_Affirmative", "こさせられる");
+            conjugations.put("Hiragana_Negative", "こさせられない");
+
+            return conjugations;
+        } else if ("Suru".equals(tag)){
             conjugations.put("Affirmative", "させられる");
             conjugations.put("Negative", "させられない");
 
@@ -605,7 +702,7 @@ public class Conjugations {
         String wordStem = plainForm.substring(0, plainForm.length() - 1);
         String readingWordStem = reading.substring(0, reading.length() - 1);
 
-        if ("Ichidan".equals(tag) || "Suru".equals(tag)){
+        if ("Ichidan".equals(tag)){
             String affirmative = wordStem + "ろ";
             String negative = wordStem + "な";
 
@@ -619,8 +716,7 @@ public class Conjugations {
             conjugations.put("Hiragana_Negative", readingNegative);
 
             return conjugations;
-        }
-        else if ("Godan".equals(tag)){
+        } else if ("Godan".equals(tag)){
             int nextHiragana = plainForm.charAt(plainForm.length() - 1 ) + 2; // finds next hiragana of conjugation.
             char ending = (char)nextHiragana;
             char hiragana = plainForm.charAt(plainForm.length() - 1);
@@ -643,10 +739,17 @@ public class Conjugations {
             conjugations.put("Hiragana_Negative", readingNegative);
 
             return conjugations;
-        }
-        else if ("Kuru".equals(tag)){
+        } else if ("Kuru".equals(tag)){
             conjugations.put("Affirmative", "来い");
             conjugations.put("Negative", "来るな");
+
+            conjugations.put("Hiragana_Affirmative", "こい");
+            conjugations.put("Hiragana_Negative", "くるな");
+
+            return conjugations;
+        } else if ("Suru".equals(tag)){
+            conjugations.put("Affirmative", "しろ");
+            conjugations.put("Negative", "するな");
 
             return conjugations;
         }
@@ -662,7 +765,7 @@ public class Conjugations {
         String wordStem = plainForm.substring(0, plainForm.length() - 1);
         String readingWordStem = reading.substring(0, reading.length() - 1);
 
-        if ("Ichidan".equals(tag) || "Suru".equals(tag) || "Kuru".equals(tag)){
+        if ("Ichidan".equals(tag)){
             String affirmative = wordStem + "れば";
             String negative = wordStem + "なければ";
 
@@ -676,8 +779,7 @@ public class Conjugations {
             conjugations.put("Hiragana_Negative", readingNegative);
 
             return conjugations;
-        }
-        else if ("Godan".equals(tag)){
+        } else if ("Godan".equals(tag)){
             int nextHiragana = plainForm.charAt(plainForm.length() - 1 ) + 2; // finds next hiragana of conjugation.
             char nextStem = (char)nextHiragana;
 
@@ -700,6 +802,19 @@ public class Conjugations {
             conjugations.put("Hiragana_Affirmative", readingAffirmative);
             conjugations.put("Hiragana_Negative", readingNegative);
 
+            return conjugations;
+        } else if ("Kuru".equals(tag)){
+            conjugations.put("Affirmative", "来れば");
+            conjugations.put("Negative", "来れなければ");
+
+            conjugations.put("Hiragana_Affirmative", "くれば");
+            conjugations.put("Hiragana_Negative", "こなければ");
+
+            return conjugations;
+
+        } else if ("Suru".equals(tag)){
+            conjugations.put("Affirmative", "すれば");
+            conjugations.put("Negative", "しなければ");
             return conjugations;
         }
 
