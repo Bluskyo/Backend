@@ -1,20 +1,29 @@
 package github.io.bluskyfishing.Katsuyou.Services;
 
-import github.io.bluskyfishing.Katsuyou.Data.N5;
+import github.io.bluskyfishing.Katsuyou.Data.*;
+import github.io.bluskyfishing.Katsuyou.EndpointControllers.SettingsController;
 import github.io.bluskyfishing.Katsuyou.Methods.Conjugations;
+import github.io.bluskyfishing.Katsuyou.Methods.GetJLPT;
 import github.io.bluskyfishing.Katsuyou.Methods.GetTag;
+
 import github.io.bluskyfishing.Katsuyou.Models.Kanji;
+import github.io.bluskyfishing.Katsuyou.Models.Settings;
 import github.io.bluskyfishing.Katsuyou.Repositories.KanjiRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class WordDataService {
+
+    private final SettingsController settingsController;
+
+    // Constructor injection
+    public WordDataService(SettingsController settingsController) {
+        this.settingsController = settingsController;
+    }
 
     private KanjiRepository kanjiRepository;
 
@@ -27,14 +36,32 @@ public class WordDataService {
         return kanjiRepository.findEntryByKanji(kanji).getFirst();
     }
 
-    public Kanji getRandomEntryByKanji() {
-        String[] n5Verbs = N5.n5Verbs();
+    public Kanji getKanjiBasedSettings() {
+        Settings currentSettings = settingsController.getCurrentSettings();
+        String JLPTLevel = GetJLPT.getJLPTLevel(currentSettings);
 
-        int random = new Random().nextInt(n5Verbs.length);
-        String kanji = n5Verbs[random];
+        String[] verbs;
+
+        switch (JLPTLevel) {
+            case "N5" ->
+                verbs = N5.n5Verbs();
+            case "N4" ->
+                verbs = N4.n4Verbs();
+            case "N3" ->
+                verbs = N3.n3Verbs();
+            case "N2" ->
+                verbs = N2.n2Verbs();
+            case "N1" ->
+                verbs = N1.n1Verbs();
+            default ->
+                throw new IllegalArgumentException("Invalid JLPT level: " + JLPTLevel);
+        }
+        int random = new Random().nextInt(verbs.length);
+        String kanji = verbs[random];
 
         return kanjiRepository.findEntryByKanji(kanji).getFirst();
     }
+
 
     public Map<String, Map<String, String>> getAllConjugations(String kanji) {
 

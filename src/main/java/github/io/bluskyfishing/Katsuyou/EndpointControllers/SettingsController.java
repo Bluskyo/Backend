@@ -14,12 +14,30 @@ import java.util.Map;
 @RestController
 public class SettingsController {
 
+    private Settings currentSettings = new Settings();
+
+    public Settings getCurrentSettings() {
+        return currentSettings;
+    }
+
+    public void setCurrentSettings(Settings newSettings) {
+        this.currentSettings = newSettings;
+    }
+
+    // applies settings from frontend.
     @CrossOrigin(origins = "http://127.0.0.1:5173")
     @PostMapping("/api/settings")
+    public ResponseEntity<Settings> updateSettings (@RequestBody Settings settings) {
+        if (settings != null){
+            setCurrentSettings(settings);
+            return ResponseEntity.status(HttpStatus.OK).body(settings);
+        } else return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+    // gets conjugation based on settings saved in backend.
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @PostMapping("/api/conjugation")
     public ResponseEntity<Map<String, String>> applySettings(
-
-            // Get settings and kanji from apply settings.
-            @RequestBody Settings settings,
+            // Get kanji from apply settings.
             @RequestHeader(value = "entry") String encodedEntry,
             @RequestHeader(value = "reading") String encodedReading,
             @RequestHeader(value = "pos") String encodedPos) {
@@ -29,6 +47,7 @@ public class SettingsController {
         String pos = URLDecoder.decode(encodedPos, StandardCharsets.UTF_8);
         String tag = GetTag.GetTagFromPos(pos);
 
-        return ResponseEntity.status(HttpStatus.OK).body(new SettingsService().ConjugationBasedOnSettings(entry, reading, tag, settings));
+        return ResponseEntity.status(HttpStatus.OK).body(new SettingsService().ConjugationBasedOnSettings(entry, reading, tag, getCurrentSettings()));
     }
+
 }

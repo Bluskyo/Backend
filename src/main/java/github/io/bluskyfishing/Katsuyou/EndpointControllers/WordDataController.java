@@ -25,15 +25,15 @@ public class WordDataController {
     }
 
     @CrossOrigin(origins = "http://127.0.0.1:5173")
-    @GetMapping("/api/random")
-    public Kanji getRandomKanji() {
-        return wordDataService.getRandomEntryByKanji();
-    }
-
-    @CrossOrigin(origins = "http://127.0.0.1:5173")
     @GetMapping("/api/allConjugations/{kanji}")
     public ResponseEntity<Map<String, Map<String, String>>> getAllConjugations(@PathVariable("kanji") String kanji){
         return ResponseEntity.status(HttpStatus.OK).body(wordDataService.getAllConjugations(kanji));
+    }
+
+    @CrossOrigin(origins = "http://127.0.0.1:5173")
+    @GetMapping("/api/random")
+    public Kanji getRandomKanji() {
+        return wordDataService.getKanjiBasedSettings();
     }
     
 }

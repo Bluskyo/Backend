@@ -8,7 +8,7 @@ import java.util.*;
 
 @Service
 public class SettingsService {
-
+    // After getting kanji chooses what conjugation.
     // Return 4 items (assertion, formality, tense, conjugation)
     // in case of conjugations where there's no formality returns 3 items.
     public Map<String, String> ConjugationBasedOnSettings(String kanji, String reading, String tag, Settings settings) {
